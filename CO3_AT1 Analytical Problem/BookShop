@@ -1,1 +1,121 @@
+#include <iostream>
+using namespace std;
+
+
+class books
+{
+    string author, title, publisher;
+    float price;
+    int stock;
+    int successful, unsuccessful;
+
+
+    void updatePrice()
+    {
+        cout << "Enter new price: ";
+        cin >> price;
+    }
+
+
+public:
+
+
+    books(string a, string t, string p, float pr, int s)
+    {
+        author = a;
+        title = t;
+        publisher = p;
+        price = pr;
+        stock = s;
+        successful = 0;
+        unsuccessful = 0;
+    }
+
+
+    void searchBook()
+    {
+        string t, a;
+        int copies;
+
+
+        cout << "Enter book title: ";
+        cin >> t;
+
+
+        cout << "Enter author name: ";
+        cin >> a;
+
+
+        if (t == title && a == author)
+        {
+            cout << "\nBook Available" << endl;
+            cout << "Title: " << title << endl;
+            cout << "Author: " << author << endl;
+            cout << "Publisher: " << publisher << endl;
+            cout << "Price: " << price << endl;
+            cout << "Stock: " << stock << endl;
+
+
+            cout << "Enter number of copies: ";
+            cin >> copies;
+
+
+            if (copies <= stock)
+            {
+                cout << "Total Cost: " << price * copies << endl;
+                stock = stock - copies;
+                successful++;
+            }
+            else
+            {
+                cout << "Required copies not in stock" << endl;
+                unsuccessful++;
+            }
+        }
+        else
+        {
+            cout << "Book Not Available" << endl;
+            unsuccessful++;
+        }
+    }
+
+
+    void changePrice()
+    {
+        updatePrice();
+        cout << "Price Updated Successfully" << endl;
+    }
+
+
+    void display()
+    {
+        cout << "\nSuccessful Transactions: " << successful << endl;
+        cout << "Unsuccessful Transactions: " << unsuccessful << endl;
+        cout << "Remaining Stock: " << stock << endl;
+    }
+};
+
+
+int main()
+{
+    books b("Ramesh", "Cplusplus", "ABC", 500, 10);
+
+
+    b.searchBook();
+
+
+    b.changePrice();
+
+
+    b.display();
+
+
+    return 0;
+}
+
+
+
+
+
+
 
