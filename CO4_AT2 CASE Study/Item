@@ -1,1 +1,106 @@
+#include <iostream>
+using namespace std;
+
+
+class Item
+{
+public:
+    int itemno;
+    string name;
+    float price;
+};
+
+
+class DiscountedItem : public Item
+{
+public:
+    float discount;
+
+
+    void getData()
+    {
+        cout << "Enter Item Number: ";
+        cin >> itemno;
+
+
+        cout << "Enter Name: ";
+        cin >> name;
+
+
+        cout << "Enter Price: ";
+        cin >> price;
+
+
+        cout << "Enter Discount Percentage: ";
+        cin >> discount;
+    }
+
+
+    void display()
+    {
+        float amount;
+        amount = price - (price * discount / 100);
+
+
+        cout << itemno << "\t" << name << "\t"
+             << price << "\t" << amount << endl;
+    }
+};
+
+
+int main()
+{
+    int n;
+    float total = 0;
+
+
+    cout << "Enter number of items: ";
+    cin >> n;
+
+
+    DiscountedItem a[10];
+
+
+    for (int i = 0; i < n; i++)
+    {
+        a[i].getData();
+    }
+
+
+    cout << "\nItem No\tName\tPrice\tAmount" << endl;
+
+
+    for (int i = 0; i < n; i++)
+    {
+        a[i].display();
+
+
+        total = total + a[i].price -
+                (a[i].price * a[i].discount / 100);
+    }
+
+
+    cout << "\nTotal Amount = Rs. " << total << endl;
+
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
