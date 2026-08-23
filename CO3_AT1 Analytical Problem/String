@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class String
+{
+    string str;
+
+
+public:
+
+
+    String(string s)
+    {
+        str = s;
+    }
+
+
+    bool operator==(String s)
+    {
+        return str == s.str;
+    }
+
+
+    bool operator>(String s)
+    {
+        return str > s.str;
+    }
+
+
+    bool operator<(String s)
+    {
+        return str < s.str;
+    }
+};
+
+
+int main()
+{
+    String s1("apple");
+    String s2("banana");
+
+
+    if (s1 == s2)
+        cout << "Both strings are equal" << endl;
+    else
+        cout << "Strings are not equal" << endl;
+
+
+    if (s1 > s2)
+        cout << "First string is greater" << endl;
+    else
+        cout << "First string is not greater" << endl;
+
+
+    if (s1 < s2)
+        cout << "First string is smaller" << endl;
+    else
+        cout << "First string is not smaller" << endl;
+
+
+    return 0;
+}
+
