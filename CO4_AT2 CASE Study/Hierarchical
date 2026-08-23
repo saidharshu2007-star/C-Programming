@@ -1,1 +1,74 @@
+#include <iostream>
+using namespace std;
+
+
+class Person
+{
+public:
+    string name, address;
+    long phone_no;
+};
+
+
+class Employee : public Person
+{
+public:
+    int eno;
+    string ename;
+};
+
+
+class Manager : public Person
+{
+public:
+    string designation, department_name;
+    float basic_salary;
+};
+
+
+int main()
+{
+    Employee e;
+    Manager m;
+
+
+    cout << "Enter Employee Name: ";
+    cin >> e.name;
+    cout << "Enter Address: ";
+    cin >> e.address;
+    cout << "Enter Phone Number: ";
+    cin >> e.phone_no;
+    cout << "Enter Employee Number: ";
+    cin >> e.eno;
+    cout << "Enter Employee Name: ";
+    cin >> e.ename;
+
+
+    cout << "\nEnter Manager Name: ";
+    cin >> m.name;
+    cout << "Enter Address: ";
+    cin >> m.address;
+    cout << "Enter Phone Number: ";
+    cin >> m.phone_no;
+    cout << "Enter Designation: ";
+    cin >> m.designation;
+    cout << "Enter Department: ";
+    cin >> m.department_name;
+    cout << "Enter Basic Salary: ";
+    cin >> m.basic_salary;
+
+
+    cout << "\nEmployee: " << e.ename << endl;
+    cout << "Employee Number: " << e.eno << endl;
+
+
+    cout << "\nManager: " << m.name << endl;
+    cout << "Designation: " << m.designation << endl;
+    cout << "Department: " << m.department_name << endl;
+    cout << "Basic Salary: " << m.basic_salary << endl;
+
+
+    return 0;
+}
+
 
