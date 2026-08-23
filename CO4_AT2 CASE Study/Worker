@@ -1,1 +1,89 @@
+#include <iostream>
+using namespace std;
+
+
+class Worker
+{
+public:
+    int code;
+    string name;
+    float salary;
+
+
+    void input()
+    {
+        cout << "Enter code: ";
+        cin >> code;
+
+
+        cout << "Enter name: ";
+        cin >> name;
+
+
+        cout << "Enter salary: ";
+        cin >> salary;
+    }
+};
+
+
+class Officer
+{
+public:
+    float DA, HRA;
+
+
+    void input2()
+    {
+        cout << "Enter DA: ";
+        cin >> DA;
+
+
+        cout << "Enter HRA: ";
+        cin >> HRA;
+    }
+};
+
+
+class Manager : public Worker, public Officer
+{
+public:
+    float TA, grosssal;
+
+
+    void calculate()
+    {
+        TA = salary * 10 / 100;
+        grosssal = salary + DA + HRA + TA;
+    }
+
+
+    void display()
+    {
+        cout << "\nCode: " << code;
+        cout << "\nName: " << name;
+        cout << "\nSalary: " << salary;
+        cout << "\nDA: " << DA;
+        cout << "\nHRA: " << HRA;
+        cout << "\nTA: " << TA;
+        cout << "\nGross Salary: " << grosssal;
+    }
+};
+
+
+int main()
+{
+    Manager m;
+
+
+    m.input();
+    m.input2();
+    m.calculate();
+    m.display();
+
+
+    return 0;
+}
+
+
+
 
