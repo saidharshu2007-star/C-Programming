@@ -1,1 +1,74 @@
+#include <iostream>
+using namespace std;
+
+
+class Marks
+{
+protected:
+    int m1, m2, m3;
+
+
+public:
+    void getMarks()
+    {
+        cout << "Enter marks of Subject 1: ";
+        cin >> m1;
+
+
+        cout << "Enter marks of Subject 2: ";
+        cin >> m2;
+
+
+        cout << "Enter marks of Subject 3: ";
+        cin >> m3;
+    }
+};
+
+
+class Total : public Marks
+{
+protected:
+    int total;
+
+
+public:
+    void findTotal()
+    {
+        total = m1 + m2 + m3;
+        cout << "Total Marks: " << total << endl;
+    }
+};
+
+
+class Percentage : public Total
+{
+public:
+    void findPercentage()
+    {
+        float percentage;
+        percentage = total / 3.0;
+
+
+        cout << "Percentage: " << percentage << "%" << endl;
+    }
+};
+
+
+int main()
+{
+    Percentage p;
+
+
+    p.getMarks();
+    p.findTotal();
+    p.findPercentage();
+
+
+    return 0;
+}
+
+
+
+
+
 
