@@ -1,1 +1,118 @@
+#include <iostream>
+using namespace std;
+
+
+class BankAccount
+{
+    string name;
+    int accountNo;
+    string type;
+    float balance;
+
+
+public:
+
+
+    // Constructor
+    BankAccount()
+    {
+        cout << "Enter name: ";
+        cin >> name;
+
+
+        cout << "Enter account number: ";
+        cin >> accountNo;
+
+
+        cout << "Enter account type: ";
+        cin >> type;
+
+
+        cout << "Enter initial balance: ";
+        cin >> balance;
+    }
+
+
+    void deposit()
+    {
+        int acc;
+        string n;
+        float amount;
+
+
+        cout << "\nEnter account number: ";
+        cin >> acc;
+
+
+        cout << "Enter name: ";
+        cin >> n;
+
+
+        if (acc == accountNo && n == name)
+        {
+            cout << "Enter amount to deposit: ";
+            cin >> amount;
+
+
+            balance = balance + amount;
+            cout << "Amount deposited successfully." << endl;
+        }
+        else
+        {
+            cout << "Invalid account number or name." << endl;
+        }
+    }
+
+
+    void withdraw()
+    {
+        float amount;
+
+
+        cout << "\nEnter amount to withdraw: ";
+        cin >> amount;
+
+
+        if (amount <= balance)
+        {
+            balance = balance - amount;
+            cout << "Amount withdrawn successfully." << endl;
+        }
+        else
+        {
+            cout << "Insufficient balance." << endl;
+        }
+    }
+
+
+    void display()
+    {
+        cout << "\nName: " << name << endl;
+        cout << "Balance: Rs. " << balance << endl;
+    }
+
+
+    // Destructor
+    ~BankAccount()
+    {
+        cout << "Destructor called." << endl;
+    }
+};
+
+
+int main()
+{
+    BankAccount b;
+
+
+    b.deposit();
+    b.withdraw();
+    b.display();
+
+
+    return 0;
+}
+
+
+
 
